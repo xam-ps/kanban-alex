@@ -4,7 +4,7 @@ public class Main {
         Board kanban = new Board();
         kanban.addTasks();
         kanban.printBoard();
-        kanban.checkUpdate();
+        kanban.updateTasks();
         kanban.printBoard();
     }
 }

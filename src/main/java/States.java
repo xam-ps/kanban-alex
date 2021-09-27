@@ -20,7 +20,7 @@ public class States {
 
     public void showTasks(){
         for(int i=0; i<tasksListe.size(); i++) {
-            System.out.println("=> " + tasksListe.get(i).getTask());
+            System.out.println(i + " => " + tasksListe.get(i).getTask());
         }
     }
 

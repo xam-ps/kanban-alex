@@ -17,20 +17,9 @@ public class Board {
     }
 
 
-    public void updateTasks(String inputTask){
-        for(int i=0; i<waiting.tasksListe.size(); i++) {
-            if(inputTask.equals(waiting.tasksListe.get(i).getTask())){
-                waiting.tasksListe.remove(waiting.tasksListe.remove(inputTask));
-            } else {
-                System.out.println("NO TASK FOUNDtt");
-            }
-        }
-    }
-
-
     public void addTasks(){
-        waiting.addTask(new Tasks("HALLO"));
-        waiting.addTask(new Tasks("SERS"));
+        waiting.addTask(new Tasks("Erstes Statment in Waiting."));
+        waiting.addTask(new Tasks("Zweites Statment in Waiting."));
 
         inProgress.addTask(new Tasks("WAS"));
         inProgress.addTask(new Tasks("GEHT"));
@@ -39,15 +28,32 @@ public class Board {
         done.addTask(new Tasks("EUCH"));
     }
 
-    public void checkUpdate(){
-        System.out.println("TO UPDATE TASKS PRESS -m- ");
+    public void updateTasks(){
+        System.out.println("\n" +
+                "In which state is your Task?" +
+                "\nW = Waiting \n" +
+                "I = In Progress \n" +
+                "D = Done");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.next();
         switch (input){
-            case "m":
-                System.out.println("Please give the name of the task you want to update");
-                String inputTask = scanner.next();
-                updateTasks(inputTask);
+            case "w":
+                System.out.println("Please give the number of the task you want to update.");
+                int inputTaskW = scanner.nextInt();
+                        inProgress.tasksListe.add(waiting.tasksListe.get(inputTaskW));
+                        waiting.tasksListe.remove(inputTaskW);
+                        break;
+            case "i":
+                System.out.println("Please give the number of the task you want to update.");
+                int inputTaskI = scanner.nextInt();
+                done.tasksListe.add(inProgress.tasksListe.get(inputTaskI));
+                inProgress.tasksListe.remove(inputTaskI);
+                break;
+            case "d":
+                System.out.println("Please give the number of the task you want to update.");
+                int inputTaskD = scanner.nextInt();
+                done.tasksListe.remove(inputTaskD);
+                break;
+                    }
+                }
         }
-    }
-}
