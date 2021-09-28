@@ -1,11 +1,11 @@
-public class Tasks {
+public class Task {
     private String taskName;
 
-    Tasks(String taskName){
+    Task(String taskName) {
         this.taskName = taskName;
     }
 
-    public String getTask(){
+    public String getTask() {
         return this.taskName;
     }
 }
